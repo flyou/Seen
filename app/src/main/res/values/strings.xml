@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HotWXReading</string>
+    <string name="about_account">\n微博：<a href="http://weibo.com/fangjaylong">凤飞雪未扬</a>\n\n博客：<a href="http://blog.flyou.ren/">flyou</a>\n\nQQ：553274238</string>
 </resources>

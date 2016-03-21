@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.flyou.seen.flyouseen.ImageList.adapter.ImageNewsRecycleViewAdapter;
 import com.flyou.seen.flyouseen.ImageList.domain.ImageNews;
 import com.flyou.seen.flyouseen.ImageList.presenter.ImageNewPresenterImpl;
@@ -20,6 +21,8 @@ import com.flyou.seen.flyouseen.ImageList.view.ImageNewsView;
 import com.flyou.seen.flyouseen.R;
 import com.flyou.seen.flyouseen.base.BaseActivity;
 import com.flyou.seen.flyouseen.imageDetial.widget.ImageNewDetialActivity;
+import com.mikepenz.iconics.IconicsDrawable;
+import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
@@ -170,4 +173,17 @@ public class MainActivity extends BaseActivity implements ImageNewsView, SwipeRe
             }
         }
     };
+
+
+    public void  aboutMe(View view){
+        new MaterialDialog.Builder(MainActivity.this)
+                .title("关于作者")
+                .icon(new IconicsDrawable(MainActivity.this)
+                        .color(getResources().getColor(R.color.colorPrimary))
+                        .icon(MaterialDesignIconic.Icon.gmi_account)
+                        .sizeDp(20))
+                .positiveText("确定")
+                .content(R.string.about_account)
+                .show();
+    }
 }

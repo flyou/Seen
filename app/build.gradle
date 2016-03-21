@@ -35,4 +35,12 @@ dependencies {
     compile 'com.wang.avi:library:1.0.4'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'org.sufficientlysecure:html-textview:1.4'
+    //Material Dialog
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.6@aar') {
+        transitive = true
+    }
+
+    compile 'com.mikepenz:material-design-iconic-typeface:2.2.0.1@aar'
+    compile 'com.mikepenz:iconics-core:2.5.5@aar'
+
 }
