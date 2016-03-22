@@ -6,7 +6,7 @@
 1. 采用MVP架构
 2. JSoup网页数据解析
 3. material design标准
-4. ![](http://7xl7dy.com1.z0.glb.clouddn.com/ezgif.com-gif-maker.gif)
+![](http://7xl7dy.com1.z0.glb.clouddn.com/ezgif.com-gif-maker.gif)
 
 
 
