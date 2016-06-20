@@ -1,5 +1,7 @@
 package com.flyou.seen.flyouseen.ImageList.model;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.flyou.seen.flyouseen.ImageList.domain.ImageNews;
 import com.flyou.seen.flyouseen.comm.APi;
@@ -29,24 +31,27 @@ public class ImageListModelImpl implements ImageListModel {
     public void getImageNewList(int page, final OnImageNewLoadListenter listenter) {
         OkHttpUtils
                 .get()
-                .url(APi.IMAGE_NEW_LIST_URL + "page=" + page)
+                .url(APi.IMAGE_NEW_LIST_URL + "&page=" + page)
                 .build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e) {
                         listenter.onFailed(e.getMessage(), e);
+                        Log.d("flyou", e.getMessage());
                     }
 
                     @Override
                     public void onResponse(String response) {
+                        Log.d("flyou", response);
                         try {
-                            String json = response.split("\\(")[1].split("\\)")[0];
+                            String json = response.substring(17,response.length()-1);
+                            Log.d("flyou", json);
                             ImageNews imageNews = new Gson().fromJson(json, ImageNews.class);
                             listenter.onSuccess(imageNews.getData());
-                        }
-                       catch (Exception e){
 
-                       }
+                        } catch (Exception e) {
+                            Log.d("flyou:error", e.getMessage());
+                        }
 
                     }
                 });
@@ -54,6 +59,7 @@ public class ImageListModelImpl implements ImageListModel {
 
     public interface OnImageNewLoadListenter {
         void onSuccess(List<ImageNews.DataEntity> imageNews);
+
         void onFailed(String msg, Exception e);
     }
 }
